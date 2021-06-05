@@ -1,7 +1,7 @@
 
 const button = document.getElementById("generate-btn");
-const viewQuote = document.getElementsByClassName("text-muted");
-const viewAuthor = document.getElementsByClassName("author");
+const viewQuote = document.querySelector('h3');
+const viewAuthor = document.querySelector('h5');
 
 var quotesArray = [
     {id: 101,
@@ -30,13 +30,17 @@ var quotesArray = [
 function generateQuote() {
     console.log("It's working");
 
+
     //generate a random number
-    let pos = parseInt(Math.random * quotesArray.length);
+    let pos = Math.floor(Math.random() * quotesArray.length);
 
     console.log(pos);
 
-    let quote = quotesArray[2].Quote;
-    let author = quotesArray[2].Author;
+    let quote = quotesArray[pos].Quote;
+    console.log(quote);
+
+    let author = quotesArray[pos].Author;
+    console.log(author)
 
     viewQuote.innerHTML = quote;
     viewAuthor.innerHTML = author;
